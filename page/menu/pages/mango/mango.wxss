@@ -1,0 +1,44 @@
+@import "../../../common/lib/weui.wxss";
+
+button{
+  margin-bottom: 30rpx;
+}
+button:last-child{
+  margin-bottom: 0;
+}
+.page-section-title{
+  padding: 0;
+}
+.swiper-item{
+  display: block;
+  height: 200px;
+}
+.page-section-title{
+  margin-top: 60rpx;
+  position: relative;
+}
+.info{
+  position: absolute;
+  right: 0;
+  color: #353535;
+  font-size: 30rpx;
+}
+.page-foot{
+  margin-top: 50rpx;
+}.cart .total {
+	width:60%;
+	float: left;
+	padding: 1rem;
+	background: rgba(0,0,0,0.6);
+
+	
+}
+.cart .payoff{
+	float: right;
+	background: rgba(13,250,33,0.8);
+	height: 59.5px;
+	line-height: 59.5px;
+	width:30%;
+	text-align: center;
+	font-weight: bolder;
+}
