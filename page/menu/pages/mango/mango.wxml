@@ -19,7 +19,7 @@
     <view class="page-section">
       <view class="page-section-title">食量</view>
       <view class="weui-cells weui-cells_after-title">
-        <radio-group bindchange="radioChange">
+        <radio-group bindchange="selectDish">
           <label class="weui-cell weui-check__label" wx:for="{{items}}" wx:key="{{item.value}}">
 
             <view class="weui-cell__hd">
@@ -43,7 +43,7 @@
 
   </view>
   <view class="cart">
-	<text class="total">购物车：￥{{cartTotal}}</text>
+	<text class="total">购物车：￥{{globalPrice}}</text>
 	<text class="payoff">去结算</text>
 </view>
 

@@ -1,12 +1,14 @@
+var app = getApp()
+
 Page({
   data: {
     background: ['demo-text-1', 'demo-text-2', 'demo-text-3'],
     pancakePics:[  
                   {url:'../../resources/kind/pancake_mango1.png'} ,  
                   {url:'../../resources/kind/pancake_mango2.png'} ,  
-                    {url:'../../resources/kind/pancake_mango3.png'} 
+                  {url:'../../resources/kind/pancake_mango3.png'} 
            ], 
-					 dishesList:[
+		dishesList:[
 			[
 				{
 					name:"大份",
@@ -28,12 +30,13 @@ Page({
 				}
 			]
 			],
-dishes:[],
+   dishes:[],
+	 globalPrice: app.globalData.globalPrice,
    items: [
       {value: 'big', name: '大  15RMB'},
       {value: 'middle', name: '中  10RMB', checked: 'true'},
       {value: 'small', name: '小  5RMB'}
-    ],            
+   ],            
     indicatorDots: true,
     vertical: false,
     autoplay: false,
@@ -59,28 +62,11 @@ loadingChange () {
 	},
 	// 选择菜品
 	selectDish (event) {
-		let dish = event.currentTarget.dataset.dish;
-		let price = event.currentTarget.dataset.price*1;
-		let flag = true;
-		let	cart = this.data.cart;
-		let total = this.data.cartTotal;
-		if(cart.length > 0){
-			cart.forEach(function(item,index){
-				if(item == dish){
-					cart.splice(index,1);
-					flag = false;
-					total -= price;
-				}
-			})
-		}
-		if(flag){
-			cart.push(dish);
-			total += price;
-		}
+		console.log('index值为：1',app.globalData.globalPrice)
+    app.incrementPrice() 
 		this.setData({
-			cartTotal:total
+			globalPrice:app.globalData.globalPrice
 		})
-		this.setStatus(dish)
 	},
 	setStatus (dishId) {
 		let dishes = this.data.dishesList;
@@ -99,21 +85,6 @@ loadingChange () {
 	onLoad () {
 		this.loadingChange()
 	},
-  changeIndicatorDots: function (e) {
-    this.setData({
-      indicatorDots: !this.data.indicatorDots
-    })
-  },
-  changeAutoplay: function (e) {
-    this.setData({
-      autoplay: !this.data.autoplay
-    })
-  },
-  intervalChange: function (e) {
-    this.setData({
-      interval: e.detail.value
-    })
-  },
   durationChange: function (e) {
     this.setData({
       duration: e.detail.value
