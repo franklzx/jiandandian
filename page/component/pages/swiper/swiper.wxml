@@ -1,0 +1,42 @@
+<import src="../../../common/foot.wxml" />
+
+<view class="container">
+  <template is="head" data="{{title: '芒果班戟'}}"/>
+
+  <view class="page-body">
+    <view class="page-section page-section-spacing swiper">
+    
+     <swiper indicator-dots="{{indicatorDots}}"
+        autoplay="{{autoplay}}" interval="{{interval}}" duration="{{duration}}">
+        <block wx:for="{{pancakePics}}" wx:for-index="index">
+       <swiper-item>
+            <image class="swiper-item" src="{{item.url}}"></image>
+          </swiper-item>
+        </block>
+      </swiper>
+    </view>  
+
+    <view class="page-section">
+      <view class="page-section-title">食量</view>
+      <view class="weui-cells weui-cells_after-title">
+        <radio-group bindchange="radioChange">
+          <label class="weui-cell weui-check__label" wx:for="{{items}}" wx:key="{{item.value}}">
+
+            <view class="weui-cell__hd">
+              <radio value="{{item.value}}" checked="true"/>
+            </view>
+            <view class="weui-cell__bd">{{item.name}}</view>
+          </label>
+        </radio-group>
+      </view>
+    </view>
+  
+
+
+      
+    <view class="page-section-title">班戟是pancake的粤语音译，是一种用黄油在煎锅中烹制的小面包干，它有许多种不同版本的做法。一般来说班戟使用的是未经发酵的面粉制作，属于快速烘培面包，不过有些版本的做法里也采用发酵后的面粉来做。班戟是西方人很喜欢的甜品，但经过香港人的打磨，已经变成港式甜品的经典之一。香港人将班戟和芒果完美的结合在一起，每次品尝的时候都会由衷钦佩发明如此美味组合的人，芒果的香甜，奶油的软滑，加上西式的薄饼。经过香港人的创造改良，芒果班戟已经变成了经典的港式甜品。</view>
+  </view>
+  
+
+  <template is="foot" />
+</view>
