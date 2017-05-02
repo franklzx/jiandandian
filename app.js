@@ -11,8 +11,14 @@ App({
     console.log('App Hide')
   },
   globalData: {
+    globalPrice: 12,
     hasLogin: false,
     openid: null
+  },
+  incrementPrice: function(callback) {
+    //globalData:globalPrice += 1
+    console.log('increment')
+    this.globalData.globalPrice += 1 
   },
   // lazy loading openid
   getUserOpenId: function(callback) {
